@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - Our Coffee Shop</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+    <header>
+        <h1>Our Coffee Shop Menu</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="shop.html">Menu</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Our Delicious Offerings</h2>
+            <ul>
+                <li>
+                    Espresso - ₱165.00 
+                    <button onclick="addToCart('Espresso', 165.00)">Add to Cart</button>
+                </li>
+                <li>
+                    Latte - ₱220.00 
+                    <button onclick="addToCart('Latte', 220.00)">Add to Cart</button>
+                </li>
+                <li>
+                    Cappuccino - ₱247.50 
+                    <button onclick="addToCart('Cappuccino', 247.50)">Add to Cart</button>
+                </li>
+                <li>
+                    Mocha - ₱275.00 
+                    <button onclick="addToCart('Mocha', 275.00)">Add to Cart</button>
+                </li>
+            </ul>
+            <h3>Total: <span id="totalAmount">₱0.00</span></h3>
+            <button onclick="payOut()">Pay Out</button>
+        </section>
+    </main>
+
+    <script>
+        let total = 0; 
+
+        function addToCart(item, price) {
+            total += price; 
+            document.getElementById('totalAmount').innerText = '₱' + total.toFixed(2); // Update displayed total
+            alert(item + " has been added to your cart for ₱" + price.toFixed(2));
+        }
+
+        function payOut() {
+            if (total > 0) {
+                
+                alert("Proceeding to payment. Your total is ₱" + total.toFixed(2));
+               
+                window.location.href = 'payment.html'; 
+            } else {
+                alert("Your cart is empty. Please add items to your cart before proceeding to payment.");
+            }
+        }
+    </script>
+    <footer>
+        <p>&copy; 2023 Our Coffee Shop. All rights reserved.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
